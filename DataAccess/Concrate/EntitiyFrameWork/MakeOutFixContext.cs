@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Entities;
+using Entities.Concrate;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Concrate.EntitiyFrameWork

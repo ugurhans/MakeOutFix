@@ -6,23 +6,34 @@ using System.Text;
 using Core.DataAccess.EntityFramework;
 using DataAccess.Abstract;
 using Entities;
+using Entities.Concrate;
+using Entities.Dtos;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace DataAccess.Concrate.EntitiyFrameWork
 {
     public class EfDietDal : EfEntityRepositoryBase<Diet, MakeOutFixContext>, IDietDal
     {
-        public List<Diet> GetDietsDay(Expression<Func<Diet, bool>> filter = null)
+        public List<DietDto> GetDietDto(Expression<Func<DietDto, bool>> filter = null)
         {
             using (MakeOutFixContext context = new MakeOutFixContext())
             {
+                var result = from d in context.Diets
+                             join dm in context.DietMethods
+                                 on d.DietMethodId equals dm.Id
+                             select new DietDto()
+                             {
+                                 DietMethodName = dm.Name,
+                                 Name = d.Name,
+                                 Days = d.Days,
+                                 MethodId = dm.Id,
 
-                var diet = context.Diets.Include(d => d.Days).Include(d => d.Patient).ToList();
-
-                return diet.ToList();
+                             };
+                return filter == null ? result.ToList() : result.Where(filter).ToList();
 
             }
-
         }
+
     }
 }

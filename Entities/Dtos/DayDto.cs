@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Text;
 using Core.Entities;
 
-namespace Entities
+namespace Entities.Dtos
 {
-    public class Day : IEntity
+    public class DayDto : IDto
     {
-        public int Id { get; set; }
 
         public string WeekDay { get; set; }
 
@@ -35,8 +33,5 @@ namespace Entities
 
 
         public string Recommended { get; set; }
-
-        public int DietId { get; set; }
-
     }
 }

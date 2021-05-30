@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Entities;
+using Entities.Concrate;
 
 namespace Business.Abstract
 {

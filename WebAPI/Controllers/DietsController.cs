@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Business.Abstract;
 using Entities;
+using Entities.Concrate;
 
 namespace WebAPI.Controllers
 {
@@ -24,6 +25,30 @@ namespace WebAPI.Controllers
         public IActionResult GetAll()
         {
             var result = _dietService.GetAllDays();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+        [HttpGet("getalldto")]
+        public IActionResult GetAllDto()
+        {
+            var result = _dietService.GetAllDietDto();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+        [HttpGet("getalldtobyid")]
+        public IActionResult GetAllDtoById(int methodId)
+        {
+            var result = _dietService.GetAllDietDtoByMethod(methodId);
             if (result.Success)
             {
                 return Ok(result);

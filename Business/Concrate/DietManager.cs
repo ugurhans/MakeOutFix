@@ -6,6 +6,8 @@ using Business.Abstract;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities;
+using Entities.Concrate;
+using Entities.Dtos;
 using Microsoft.EntityFrameworkCore.Query;
 
 namespace Business.Concrate
@@ -26,7 +28,7 @@ namespace Business.Concrate
 
         public IDataResult<List<Diet>> GetAllDays()
         {
-            return new SuccessDataResult<List<Diet>>(_dietDal.GetDietsDay());
+            return new SuccessDataResult<List<Diet>>(_dietDal.GetAll());
         }
 
         public IDataResult<Diet> GetById(int dietId)
@@ -34,8 +36,19 @@ namespace Business.Concrate
             return new SuccessDataResult<Diet>(_dietDal.Get(d => d.Id == dietId));
         }
 
+        public IDataResult<List<DietDto>> GetAllDietDto()
+        {
+            return new SuccessDataResult<List<DietDto>>(_dietDal.GetDietDto());
+        }
+
+        public IDataResult<List<DietDto>> GetAllDietDtoByMethod(int methodId)
+        {
+            return new SuccessDataResult<List<DietDto>>(_dietDal.GetDietDto(m => m.MethodId == methodId));
+        }
+
         public IResult Add(Diet diet)
         {
+
             _dietDal.Add(diet);
             return new SuccessResult();
         }
