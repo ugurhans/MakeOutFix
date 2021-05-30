@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Business.Abstract;
 using Business.Constants;
@@ -7,6 +8,7 @@ using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities;
 using Entities.Concrate;
+using Entities.Dtos;
 
 namespace Business.Concrate
 {
@@ -34,6 +36,8 @@ namespace Business.Concrate
             _dayDal.Add(day);
             return new SuccessResult(Messages.DayAdded);
         }
+
+
 
         public IResult Delete(Day day)
         {

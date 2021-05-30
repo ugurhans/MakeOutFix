@@ -12,12 +12,12 @@ namespace Entities.Concrate
         {
             Days = new List<Day>();
         }
-        [Key]
+
         public int Id { get; set; }
         public int DietMethodId { get; set; }
-        public int PatientId { get; set; }
+
         public string Name { get; set; }
         public List<Day> Days { get; set; }
-        //public Patient Patient { get; set; }
+
     }
 }

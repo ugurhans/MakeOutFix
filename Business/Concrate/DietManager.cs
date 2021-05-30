@@ -28,7 +28,7 @@ namespace Business.Concrate
 
         public IDataResult<List<Diet>> GetAllDays()
         {
-            return new SuccessDataResult<List<Diet>>(_dietDal.GetAll());
+            return new SuccessDataResult<List<Diet>>(_dietDal.GetAllDiet());
         }
 
         public IDataResult<Diet> GetById(int dietId)
@@ -48,7 +48,6 @@ namespace Business.Concrate
 
         public IResult Add(Diet diet)
         {
-
             _dietDal.Add(diet);
             return new SuccessResult();
         }
@@ -63,6 +62,18 @@ namespace Business.Concrate
         {
             _dietDal.Update(diet);
             return new SuccessResult();
+        }
+
+        public IDataResult<Diet> AddDiet(DietDto dietDto)
+        {
+            var diet = new Diet()
+            {
+                DietMethodId = dietDto.MethodId,
+                Name = dietDto.Name,
+                Days = dietDto.Days
+            };
+            _dietDal.Add(diet);
+            return new SuccessDataResult<Diet>(diet, "Added Diet");
         }
     }
 }

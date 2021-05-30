@@ -15,6 +15,18 @@ namespace DataAccess.Concrate.EntitiyFrameWork
 {
     public class EfDietDal : EfEntityRepositoryBase<Diet, MakeOutFixContext>, IDietDal
     {
+        public List<Diet> GetAllDiet(Expression<Func<Diet, bool>> filter = null)
+        {
+            using (MakeOutFixContext context = new MakeOutFixContext())
+            {
+
+                var diet = context.Diets.Include(d => d.Days);
+
+                return diet.ToList();
+
+            }
+        }
+
         public List<DietDto> GetDietDto(Expression<Func<DietDto, bool>> filter = null)
         {
             using (MakeOutFixContext context = new MakeOutFixContext())
@@ -27,8 +39,7 @@ namespace DataAccess.Concrate.EntitiyFrameWork
                                  DietMethodName = dm.Name,
                                  Name = d.Name,
                                  Days = d.Days,
-                                 MethodId = dm.Id,
-
+                                 MethodId = dm.Id
                              };
                 return filter == null ? result.ToList() : result.Where(filter).ToList();
 

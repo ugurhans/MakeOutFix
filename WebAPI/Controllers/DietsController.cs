@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Business.Abstract;
 using Entities;
 using Entities.Concrate;
+using Entities.Dtos;
 
 namespace WebAPI.Controllers
 {
@@ -16,9 +17,11 @@ namespace WebAPI.Controllers
     {
         private IDietService _dietService;
 
+
         public DietsController(IDietService dietService)
         {
             _dietService = dietService;
+
         }
 
         [HttpGet("getall")]
@@ -73,6 +76,18 @@ namespace WebAPI.Controllers
         public IActionResult addCategory(Diet diet)
         {
             var result = _dietService.Add(diet);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+        [HttpPost("adddietdto")]
+        public IActionResult addCategory(DietDto dietDto)
+        {
+            var result = _dietService.AddDiet(dietDto);
             if (result.Success)
             {
                 return Ok(result);

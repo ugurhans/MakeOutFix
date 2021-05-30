@@ -11,6 +11,7 @@ namespace DataAccess.Abstract
 {
     public interface IDietDal : IEntityRepository<Diet>
     {
+        List<Diet> GetAllDiet(Expression<Func<Diet, bool>> filter = null);
         List<DietDto> GetDietDto(Expression<Func<DietDto, bool>> filter = null);
 
     }
