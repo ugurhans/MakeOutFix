@@ -88,3 +88,4 @@ C:\Users\ugurh\source\repos\MakeOutFix\WebAPI\bin\Debug\netcoreapp3.1\Swashbuckl
 C:\Users\ugurh\source\repos\MakeOutFix\WebAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\ugurh\source\repos\MakeOutFix\WebAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\ugurh\source\repos\MakeOutFix\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\ugurh\source\repos\MakeOutFix\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll

@@ -92,6 +92,21 @@
           "lib/netstandard2.1/FluentValidation.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.16": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.5.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.Http/2.2.2": {
         "type": "package",
         "dependencies": {
@@ -2663,6 +2678,21 @@
         "lib/netstandard2.0/FluentValidation.xml",
         "lib/netstandard2.1/FluentValidation.dll",
         "lib/netstandard2.1/FluentValidation.xml"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.16": {
+      "sha512": "gBcYMUrYaF95fhKIPP8024E7eT7xSCthT1RHPdGd44ZJ1+ttnWebIWWu3YEdju58eleMPVyKie2TZbHkoxSNDw==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/3.1.16",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
+        "microsoft.aspnetcore.authentication.jwtbearer.3.1.16.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Http/2.2.2": {
@@ -8284,10 +8314,12 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Business >= 1.0.0",
+      "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.16",
       "Swashbuckle.AspNetCore >= 6.1.4",
       "Swashbuckle.AspNetCore.Swagger >= 6.1.4",
       "Swashbuckle.AspNetCore.SwaggerGen >= 6.1.4",
-      "Swashbuckle.AspNetCore.SwaggerUI >= 6.1.4"
+      "Swashbuckle.AspNetCore.SwaggerUI >= 6.1.4",
+      "System.IdentityModel.Tokens.Jwt >= 6.11.1"
     ]
   },
   "packageFolders": {
@@ -8341,6 +8373,10 @@
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "target": "Package",
+            "version": "[3.1.16, )"
+          },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.1.4, )"
@@ -8356,6 +8392,10 @@
           "Swashbuckle.AspNetCore.SwaggerUI": {
             "target": "Package",
             "version": "[6.1.4, )"
+          },
+          "System.IdentityModel.Tokens.Jwt": {
+            "target": "Package",
+            "version": "[6.11.1, )"
           }
         },
         "imports": [

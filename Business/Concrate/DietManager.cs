@@ -55,7 +55,7 @@ namespace Business.Concrate
         }
 
         [CacheRemoveAspect("Get")]
-        //[SecuredOperation("admin,doc")]
+        [SecuredOperation("admin,doc")]
         public IResult Add(Diet diet)
         {
             _dietDal.Add(diet);
