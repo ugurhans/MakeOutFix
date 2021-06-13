@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <Folder Include="ValidationRules\" />
-    <Folder Include="BusinessAspects\" />
   </ItemGroup>
 
   <ItemGroup>

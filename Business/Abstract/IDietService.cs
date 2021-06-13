@@ -20,6 +20,5 @@ namespace Business.Abstract
         IResult Delete(Diet diet);
         IResult Update(Diet diet);
 
-        IDataResult<Diet> AddDiet(DietDto dietDto);
     }
 }

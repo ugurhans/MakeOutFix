@@ -7,6 +7,7 @@ namespace Entities.Dtos
 {
     public class DayDto : IDto
     {
+        public int Id { get; set; }
 
         public string WeekDay { get; set; }
 

@@ -16,18 +16,19 @@ namespace WebAPI.Controllers
     public class DietsController : ControllerBase
     {
         private IDietService _dietService;
+        private IDayService _dayService;
 
-
-        public DietsController(IDietService dietService)
+        public DietsController(IDietService dietService, IDayService dayService)
         {
             _dietService = dietService;
-
+            _dayService = dayService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
             var result = _dietService.GetAllDays();
+
             if (result.Success)
             {
                 return Ok(result);
@@ -75,7 +76,14 @@ namespace WebAPI.Controllers
         [HttpPost("adddiet")]
         public IActionResult addCategory(Diet diet)
         {
+            //Add Days
             var result = _dietService.Add(diet);
+            var existDay = diet.Days;
+            foreach (var varDay in existDay)
+            {
+                varDay.DietId = diet.Id;
+                _dayService.Add(varDay);
+            }
             if (result.Success)
             {
                 return Ok(result);
@@ -84,17 +92,6 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("adddietdto")]
-        public IActionResult addCategory(DietDto dietDto)
-        {
-            var result = _dietService.AddDiet(dietDto);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-
-            return BadRequest(result);
-        }
 
         [HttpPost("updatediet")]
         public IActionResult updateProduct(Diet diet)
