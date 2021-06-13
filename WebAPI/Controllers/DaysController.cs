@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Business.Abstract;
 using Entities;
 using Entities.Concrate;
+using Entities.DTOs;
 
 namespace WebAPI.Controllers
 {
@@ -14,6 +15,7 @@ namespace WebAPI.Controllers
     [ApiController]
     public class DaysController : ControllerBase
     {
+        private IAuthService _authService;
         private IDayService _dayService;
 
         public DaysController(IDayService dayService)
@@ -80,5 +82,24 @@ namespace WebAPI.Controllers
 
             return BadRequest(result);
         }
+
+        [HttpPost("login")]
+        public IActionResult Login(UserForLoginDto userForLoginDto)
+        {
+            var userToLogin = _authService.Login(userForLoginDto);
+            if (!userToLogin.Success)
+            {
+                return BadRequest(userToLogin.Message);
+            }
+
+            var result = _authService.CreateAccessToken(userToLogin.Data);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result.Message);
+        }
+
     }
 }

@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Business.Abstract;
+using Entities;
+using Entities.Concrate;
 using Entities.DTOs;
 
 namespace WebAPI.Controllers
@@ -15,13 +17,9 @@ namespace WebAPI.Controllers
     {
         private IAuthService _authService;
 
-        public AuthController(IAuthService authService)
-        {
-            _authService = authService;
-        }
 
         [HttpPost("login")]
-        public ActionResult Login(UserForLoginDto userForLoginDto)
+        public IActionResult Login(UserForLoginDto userForLoginDto)
         {
             var userToLogin = _authService.Login(userForLoginDto);
             if (!userToLogin.Success)
@@ -32,6 +30,7 @@ namespace WebAPI.Controllers
             var result = _authService.CreateAccessToken(userToLogin.Data);
             if (result.Success)
             {
+
                 return Ok(result);
             }
 
@@ -39,7 +38,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("register")]
-        public ActionResult Register(UserForRegisterDto userForRegisterDto)
+        public IActionResult Register(UserForRegisterDto userForRegisterDto)
         {
             var userExists = _authService.UserExists(userForRegisterDto.Email);
             if (!userExists.Success)
@@ -56,8 +55,5 @@ namespace WebAPI.Controllers
 
             return BadRequest(result.Message);
         }
-
-
-
     }
 }
