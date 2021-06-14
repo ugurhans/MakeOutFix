@@ -17,6 +17,11 @@ namespace WebAPI.Controllers
     {
         private IAuthService _authService;
 
+        public AuthController(IAuthService authService)
+        {
+            _authService = authService;
+        }
+
 
         [HttpPost("login")]
         public IActionResult Login(UserForLoginDto userForLoginDto)
