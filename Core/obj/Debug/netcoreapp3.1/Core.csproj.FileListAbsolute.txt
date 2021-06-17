@@ -1,0 +1,9 @@
+C:\Users\ugurh\source\repos\MakeOutFix\Core\bin\Debug\netcoreapp3.1\Core.deps.json
+C:\Users\ugurh\source\repos\MakeOutFix\Core\bin\Debug\netcoreapp3.1\Core.dll
+C:\Users\ugurh\source\repos\MakeOutFix\Core\bin\Debug\netcoreapp3.1\Core.pdb
+C:\Users\ugurh\source\repos\MakeOutFix\Core\obj\Debug\netcoreapp3.1\Core.csprojAssemblyReference.cache
+C:\Users\ugurh\source\repos\MakeOutFix\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfoInputs.cache
+C:\Users\ugurh\source\repos\MakeOutFix\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfo.cs
+C:\Users\ugurh\source\repos\MakeOutFix\Core\obj\Debug\netcoreapp3.1\Core.csproj.CoreCompileInputs.cache
+C:\Users\ugurh\source\repos\MakeOutFix\Core\obj\Debug\netcoreapp3.1\Core.dll
+C:\Users\ugurh\source\repos\MakeOutFix\Core\obj\Debug\netcoreapp3.1\Core.pdb
